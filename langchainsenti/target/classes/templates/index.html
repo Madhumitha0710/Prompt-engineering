@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Langchain</title>
+<!--    <link rel="stylesheet" th:href="@{/css/main.css}" />-->
+    <style>
+        body {
+	font-size: 30px;
+}
+
+.starter-template {
+	text-align: center;
+}
+
+input {
+	padding: 10px;
+	margin: 2px;
+	border: 2px;
+	width: 50%;
+}
+
+input[type=submit]{
+background: #54bf71;
+color:white;
+margin:15px;
+border-radius: 3px;
+font-weight: Bold;
+}
+fieldset {
+	border: none;
+}
+
+p {
+font-size:15px;
+}
+
+
+    </style>
+</head>
+<body>
+<main role="main" class="container">
+    <div class="starter-template">
+        <h3>Sentiment Analysis Using Langchain<br/></h3>
+        <form th:action="@{/}" method="post">
+            <fieldset>
+                <div class="form-group">
+                    <input type="text" placeholder="Send Message..." name="prompt" th:value="${request}" required autofocus/>
+                </div>
+                <div class="row">
+                    <input type="submit" value="Send" />
+                </div>
+
+            </fieldset>
+        </form>
+        <h5>Response: </h5>
+        <p th:if="${response != null}" th:text="${response}" />
+    </div>
+</main>
+</body>
+</html>
